@@ -11,7 +11,7 @@ const tabs = document.querySelectorAll(".tab");
 const menuItems = document.querySelectorAll(".menu-item");
 
 const me = { name: "Shoaib", username: "@shoaib" };
-const colors = ["#7c5cff", "#3b82f6", "#22c55e", "#f59e0b", "#ec4899", "#06b6d4"];
+const colors = ["#1d9bf0", "#7856ff", "#12b76a", "#f59e0b", "#ff4f81", "#06b6d4"];
 
 let currentFilter = "all";
 let searchText = "";
@@ -300,25 +300,25 @@ sidePostBtn.addEventListener("click", function () {
 });
 
 // الوضع الفاتح والغامق
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light");
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
 }
 
 function updateThemeIcon() {
-  if (document.body.classList.contains("light")) {
-    themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  } else {
+  if (document.body.classList.contains("dark")) {
     themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  } else {
+    themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
   }
 }
 
 themeBtn.addEventListener("click", function () {
-  document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
 
-  if (document.body.classList.contains("light")) {
-    localStorage.setItem("theme", "light");
-  } else {
+  if (document.body.classList.contains("dark")) {
     localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
   }
 
   updateThemeIcon();
