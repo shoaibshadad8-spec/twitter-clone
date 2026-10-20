@@ -3,33 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twitter Clone</title>
+    <title>Chirp | Twitter Clone</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="twitter-container">
-      <header class="header">
-        <h2>الرئيسية</h2>
-        <span id="tweetsCount">0 تغريدة</span>
-      </header>
+    <div class="app">
+      <!-- القايمة الجانبية -->
+      <aside class="sidebar">
+        <div class="logo">C<span>hirp</span></div>
 
-      <div class="create-tweet">
-        <div class="avatar">S</div>
-        <div class="tweet-form">
-          <textarea id="tweetInput" placeholder="ماذا يحدث؟" maxlength="280"></textarea>
-          <div class="actions">
-            <span id="counter">280</span>
-            <button id="tweetBtn" disabled>تغريد</button>
+        <nav class="menu">
+          <a href="#" class="menu-item active"><span class="icon">🏠</span><span class="label">الرئيسية</span></a>
+          <a href="#" class="menu-item"><span class="icon">🔍</span><span class="label">استكشف</span></a>
+          <a href="#" class="menu-item"><span class="icon">🔔</span><span class="label">الإشعارات</span></a>
+          <a href="#" class="menu-item"><span class="icon">✉️</span><span class="label">الرسائل</span></a>
+          <a href="#" class="menu-item"><span class="icon">👤</span><span class="label">الملف الشخصي</span></a>
+        </nav>
+
+        <button class="post-btn" id="sidePostBtn">تغريد</button>
+
+        <div class="mini-profile">
+          <div class="avatar me">S</div>
+          <div>
+            <strong>Shoaib</strong>
+            <span>@shoaib</span>
           </div>
         </div>
-      </div>
+      </aside>
 
-      <div class="tabs">
-        <button class="tab active" data-filter="all">الكل</button>
-        <button class="tab" data-filter="liked">المعجب بها</button>
-      </div>
+      <!-- التغريدات -->
+      <main class="main">
+        <header class="top">
+          <h2>الرئيسية</h2>
+          <span class="count" id="tweetsCount">0 تغريدة</span>
+          <button class="theme-btn" id="themeBtn" title="تغيير الوضع">☀️</button>
+        </header>
 
-      <div class="feed" id="feed"></div>
+        <div class="create-tweet">
+          <div class="avatar me">S</div>
+          <div class="tweet-form">
+            <textarea id="tweetInput" placeholder="ماذا يحدث؟" maxlength="280"></textarea>
+            <div class="actions">
+              <span id="counter">280</span>
+              <button id="tweetBtn" disabled>تغريد</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-filter="all">الكل</button>
+          <button class="tab" data-filter="liked">المعجب بها</button>
+        </div>
+
+        <div class="feed" id="feed"></div>
+      </main>
+
+      <!-- العمود اليسار -->
+      <aside class="right">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="ابحث في التغريدات..." />
+        </div>
+
+        <div class="widget">
+          <h3>الأكثر تداولاً</h3>
+          <div class="trend">
+            <small>تقنية · رائج</small>
+            <strong>#React</strong>
+          </div>
+          <div class="trend">
+            <small>برمجة · رائج</small>
+            <strong>#frontend</strong>
+          </div>
+          <div class="trend">
+            <small>تصميم · رائج</small>
+            <strong>#CSS</strong>
+          </div>
+          <div class="trend">
+            <small>تعلّم · رائج</small>
+            <strong>#web_dev</strong>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>اقتراحات المتابعة</h3>
+          <div id="followList"></div>
+        </div>
+      </aside>
     </div>
 
     <script src="script.js"></script>
