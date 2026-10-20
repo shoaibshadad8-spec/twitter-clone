@@ -1,28 +1,27 @@
 :root {
-  --bg: #000000;
-  --card: #000000;
-  --card-hover: #080a0d;
-  --border: #2a2f33;
-  --text: #e7e9ea;
-  --muted: #71767b;
-  --accent: #1a8cd8;
-  --danger: #f91880;
-  --success: #00ba7c;
-  --gradient: #1a8cd8;
-  --widget: #16181c;
-  --search: #202327;
+  --bg: #e8f4fd;
+  --card: #ffffff;
+  --card-hover: #f3f9ff;
+  --border: #d6e8f7;
+  --text: #14202e;
+  --muted: #5f7a93;
+  --accent: #1d9bf0;
+  --danger: #ff4f81;
+  --success: #12b76a;
+  --widget: #ffffff;
+  --search: #ffffff;
 }
 
-/* الوضع الفاتح */
-body.light {
-  --bg: #ffffff;
-  --card: #ffffff;
-  --card-hover: #f7f9f9;
-  --border: #eff3f4;
-  --text: #0f1419;
-  --muted: #536471;
-  --widget: #f7f9f9;
-  --search: #eff3f4;
+/* الوضع الغامق (كحلي هادي مش أسود) */
+body.dark {
+  --bg: #0f1b2d;
+  --card: #16263c;
+  --card-hover: #1c3150;
+  --border: #25395a;
+  --text: #eaf2fb;
+  --muted: #8fa6c1;
+  --widget: #1a2d47;
+  --search: #1a2d47;
 }
 
 * {
@@ -93,11 +92,12 @@ button {
 }
 
 .menu-item:hover {
-  background: var(--card-hover);
+  background: var(--card);
 }
 
 .menu-item.active {
   font-weight: 700;
+  color: var(--accent);
 }
 
 .menu-item i {
@@ -133,7 +133,7 @@ button {
 }
 
 .mini-profile:hover {
-  background: var(--card-hover);
+  background: var(--card);
 }
 
 .mini-profile strong {
@@ -173,16 +173,12 @@ button {
 
 /* ====== الجزء الأوسط ====== */
 .main {
-  margin: 0;
+  margin: 20px 0;
   background: var(--card);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-top: none;
-  border-bottom: none;
-  border-radius: 0;
+  border: 1px solid var(--border);
+  border-radius: 18px;
   overflow: hidden;
   align-self: start;
-  min-height: 100vh;
 }
 
 .top {
@@ -378,3 +374,186 @@ button {
   border: none;
   color: var(--muted);
   font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.like-btn:hover,
+.like-btn.active {
+  color: var(--danger);
+}
+
+.retweet-btn:hover,
+.retweet-btn.active {
+  color: var(--success);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 50px 15px;
+}
+
+/* ====== العمود اليسار ====== */
+.right {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: var(--search);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+}
+
+.widget {
+  background: var(--widget);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.widget h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.trend {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trend:last-child {
+  border-bottom: none;
+}
+
+.trend small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.trend strong {
+  font-size: 15px;
+}
+
+.follow-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.follow-info {
+  flex: 1;
+}
+
+.follow-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.follow-info span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.follow-btn {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: var(--card);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.follow-btn.following {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* ====== تابلت ====== */
+@media (max-width: 1050px) {
+  .app {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .right,
+  .post-btn,
+  .mini-profile,
+  .logo span,
+  .menu-item .label {
+    display: none;
+  }
+
+  .logo {
+    text-align: center;
+    padding: 0;
+  }
+
+  .menu-item {
+    justify-content: center;
+  }
+}
+
+/* ====== موبايل ====== */
+@media (max-width: 700px) {
+  body {
+    padding-bottom: 70px;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .main {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    padding: 0 10px;
+    flex-direction: row;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    z-index: 20;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .menu {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
