@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
@@ -11,44 +10,28 @@
     <div class="twitter-container">
       <header class="header">
         <h2>الرئيسية</h2>
+        <span id="tweetsCount">0 تغريدة</span>
       </header>
 
       <div class="create-tweet">
-        <textarea placeholder="ماذا يحدث؟"></textarea>
-        <div class="actions">
-          <button>تغريد</button>
-        </div>
-      </div>
-
-      <div class="feed">
-       
-        <div class="tweet-card">
-          <div class="user-info">
-            <strong>User Name</strong>
-            <span>@username</span>
-          </div>
-          <p>HTML CSS</p>
-          <div class="tweet-stats">
-            <span> 5</span>
-            <span> 2</span>
-            <span> 18</span>
-          </div>
-        </div>
-
-    
-        <div class="tweet-card">
-          <div class="user-info">
-            <strong>Developer</strong>
-            <span>@Developer</span>
-          </div>
-          <p>صفحة التغريدات</p>
-          <div class="tweet-stats">
-            <span> 1</span>
-            <span> 3</span>
-            <span> 12</span>
+        <div class="avatar">S</div>
+        <div class="tweet-form">
+          <textarea id="tweetInput" placeholder="ماذا يحدث؟" maxlength="280"></textarea>
+          <div class="actions">
+            <span id="counter">280</span>
+            <button id="tweetBtn" disabled>تغريد</button>
           </div>
         </div>
       </div>
+
+      <div class="tabs">
+        <button class="tab active" data-filter="all">الكل</button>
+        <button class="tab" data-filter="liked">المعجب بها</button>
+      </div>
+
+      <div class="feed" id="feed"></div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
