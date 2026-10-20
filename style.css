@@ -1,62 +1,222 @@
+:root {
+  --bg: #0d0f14;
+  --card: #151922;
+  --card-hover: #1a1f2b;
+  --border: #242a38;
+  --text: #e8eaf0;
+  --muted: #8b93a7;
+  --accent: #7c5cff;
+  --danger: #ff4d6d;
+  --success: #22c55e;
+  --gradient: linear-gradient(135deg, #7c5cff, #3b82f6);
+}
+
+/* الوضع الفاتح */
+body.light {
+  --bg: #f4f5f9;
+  --card: #ffffff;
+  --card-hover: #f7f8fc;
+  --border: #e3e6ee;
+  --text: #161a23;
+  --muted: #6b7385;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
 body {
-  background-color: #15202b;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 20px 10px;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
 }
 
-.twitter-container {
-  width: 100%;
-  max-width: 600px;
-  background-color: #192734;
-  border-radius: 12px;
-  border: solid 2px #253341;
-  overflow: hidden;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.header {
-  padding: 15px;
-  border-bottom: 1px solid #253341;
+button {
+  font-family: inherit;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 320px;
+  gap: 24px;
+}
+
+/* ====== القايمة الجانبية ====== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  padding: 0 14px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-item {
+  display: flex;
   align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 17px;
+  color: var(--muted);
+  transition: 0.2s;
 }
 
-.header h2 {
-  color: #1da1f2;
+.menu-item:hover {
+  background: var(--card);
+  color: var(--text);
 }
 
-.header span {
-  color: #8899a6;
+.menu-item.active {
+  background: var(--card);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.menu-item i {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+}
+
+.post-btn {
+  margin-top: 16px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.post-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 92, 255, 0.35);
+}
+
+.mini-profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.mini-profile strong {
+  display: block;
+  font-size: 14px;
+}
+
+.mini-profile span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ====== الأفاتار ====== */
+.avatar {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+}
+
+.avatar.me {
+  background: var(--gradient);
+}
+
+.avatar.small {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  font-size: 15px;
+}
+
+/* ====== الجزء الأوسط ====== */
+.main {
+  margin: 20px 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  align-self: start;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.top h2 {
+  font-size: 20px;
+}
+
+.top .count {
+  color: var(--muted);
   font-size: 13px;
+}
+
+.theme-btn {
+  margin-right: auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /* كتابة تغريدة */
 .create-tweet {
   display: flex;
-  gap: 12px;
-  padding: 15px;
-  border-bottom: 8px solid #253341;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  border-radius: 50%;
-  background-color: #1da1f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  gap: 14px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
 }
 
 .tweet-form {
@@ -65,157 +225,337 @@ body {
 
 .create-tweet textarea {
   width: 100%;
-  height: 80px;
+  min-height: 80px;
   background: transparent;
   border: none;
   outline: none;
   resize: none;
-  color: white;
-  font-size: 16px;
+  color: var(--text);
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.create-tweet textarea::placeholder {
+  color: var(--muted);
 }
 
 .actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #253341;
-  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
 }
 
 #counter {
-  color: #8899a6;
+  color: var(--muted);
   font-size: 14px;
 }
 
 #counter.warning {
-  color: #e0245e;
+  color: var(--danger);
+  font-weight: 700;
 }
 
 .actions button {
-  background-color: #1da1f2;
+  background: var(--gradient);
   color: white;
   border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: bold;
+  padding: 10px 26px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(124, 92, 255, 0.35);
 }
 
 .actions button:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 /* التابات */
 .tabs {
   display: flex;
-  border-bottom: 1px solid #253341;
+  border-bottom: 1px solid var(--border);
 }
 
 .tab {
   flex: 1;
-  padding: 12px;
+  padding: 14px;
   background: none;
   border: none;
-  color: #8899a6;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
   font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .tab:hover {
-  background-color: #1e2d3b;
+  background: var(--card-hover);
 }
 
 .tab.active {
-  color: white;
-  border-bottom: 3px solid #1da1f2;
+  color: var(--text);
+  border-bottom-color: var(--accent);
 }
 
-/* التغريدات */
+/* ====== التغريدات ====== */
 .tweet-card {
   display: flex;
-  gap: 12px;
-  padding: 15px;
-  border-bottom: 1px solid #253341;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
 }
 
 .tweet-card:hover {
-  background-color: #1b2b3a;
+  background: var(--card-hover);
 }
 
 .tweet-body {
   flex: 1;
+  min-width: 0;
 }
 
 .user-info {
-  margin-bottom: 6px;
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.user-info strong {
+  font-size: 15px;
 }
 
 .user-info span {
-  color: #8899a6;
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .delete-btn {
   margin-right: auto;
   background: none;
   border: none;
-  color: #8899a6;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .delete-btn:hover {
-  color: #e0245e;
+  color: var(--danger);
 }
 
-.tweet-card p {
-  font-size: 15px;
-  line-height: 1.5;
-  margin-bottom: 10px;
+.tweet-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
   word-break: break-word;
+}
+
+.hashtag {
+  color: var(--accent);
 }
 
 .tweet-stats {
   display: flex;
-  gap: 25px;
+  gap: 28px;
 }
 
 .tweet-stats button {
   background: none;
   border: none;
-  color: #8899a6;
+  color: var(--muted);
   font-size: 14px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.tweet-stats .like-btn:hover,
-.tweet-stats .like-btn.active {
-  color: #e0245e;
+.like-btn:hover,
+.like-btn.active {
+  color: var(--danger);
 }
 
-.tweet-stats .retweet-btn:hover,
-.tweet-stats .retweet-btn.active {
-  color: #17bf63;
+.retweet-btn:hover,
+.retweet-btn.active {
+  color: var(--success);
 }
 
 .empty {
   text-align: center;
-  color: #8899a6;
-  padding: 40px 15px;
+  color: var(--muted);
+  padding: 50px 15px;
 }
 
-@media (max-width: 480px) {
-  body {
+/* ====== العمود اليسار ====== */
+.right {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+}
+
+.widget {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.widget h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.trend {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trend:last-child {
+  border-bottom: none;
+}
+
+.trend small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.trend strong {
+  font-size: 15px;
+}
+
+.follow-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.follow-info {
+  flex: 1;
+}
+
+.follow-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.follow-info span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.follow-btn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.follow-btn.following {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* ====== تابلت ====== */
+@media (max-width: 1050px) {
+  .app {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .right,
+  .post-btn,
+  .mini-profile,
+  .logo span,
+  .menu-item .label {
+    display: none;
+  }
+
+  .logo {
+    text-align: center;
     padding: 0;
   }
 
-  .twitter-container {
+  .menu-item {
+    justify-content: center;
+  }
+}
+
+/* ====== موبايل ====== */
+@media (max-width: 700px) {
+  body {
+    padding-bottom: 70px;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .main {
+    margin: 0;
     border-radius: 0;
-    border: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    padding: 0 10px;
+    flex-direction: row;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    z-index: 20;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .menu {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
   }
 }
