@@ -4,79 +4,218 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-body{
-    background-color: #15202b;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
+
+body {
+  background-color: #15202b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
 }
-.twitter-container{
-    width: 100%;
-    max-width: 500px;
-    background-color: #192734;
-    border-radius: 12px;
-    border: solid 2px #253341;
-    overflow: hidden;
+
+.twitter-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #192734;
+  border-radius: 12px;
+  border: solid 2px #253341;
+  overflow: hidden;
 }
+
 .header {
-    padding: 15px;
-    border-bottom: 1px solid #253341;
-    color: #1da1f2;
+  padding: 15px;
+  border-bottom: 1px solid #253341;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.create-tweet{
-    padding: 15px;
-    border-bottom: 8px solid #253341;
+
+.header h2 {
+  color: #1da1f2;
 }
-.create-tweet textarea{
-width: 100%;
-height: 70%;
-background: transparent;
-border: none;
-color: white;
-font-size: 15px;
+
+.header span {
+  color: #8899a6;
+  font-size: 13px;
 }
+
+/* كتابة تغريدة */
+.create-tweet {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  border-bottom: 8px solid #253341;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  background-color: #1da1f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.tweet-form {
+  flex: 1;
+}
+
+.create-tweet textarea {
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: white;
+  font-size: 16px;
+}
+
 .actions {
-    text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #253341;
+  padding-top: 10px;
+}
+
+#counter {
+  color: #8899a6;
+  font-size: 14px;
+}
+
+#counter.warning {
+  color: #e0245e;
 }
 
 .actions button {
-    background-color: #1da1f2;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* التابات */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #253341;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #8899a6;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #1e2d3b;
+}
+
+.tab.active {
+  color: white;
+  border-bottom: 3px solid #1da1f2;
+}
+
+/* التغريدات */
 .tweet-card {
-    padding: 15px;
-    border-bottom: 1px solid #253341;
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  border-bottom: 1px solid #253341;
+}
+
+.tweet-card:hover {
+  background-color: #1b2b3a;
+}
+
+.tweet-body {
+  flex: 1;
 }
 
 .user-info {
-    margin-bottom: 6px;
-}
-
-.user-info strong {
-    margin-left: 5px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .user-info span {
-    color: #8899a6;
-    font-size: 14px;
+  color: #8899a6;
+  font-size: 14px;
+}
+
+.delete-btn {
+  margin-right: auto;
+  background: none;
+  border: none;
+  color: #8899a6;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  color: #e0245e;
 }
 
 .tweet-card p {
-    font-size: 15px;
-    line-height: 1.4;
-    margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  word-break: break-word;
 }
 
 .tweet-stats {
-    display: flex;
-    gap: 25px;
-    color: #8899a6;
-    font-size: 13px;
+  display: flex;
+  gap: 25px;
+}
+
+.tweet-stats button {
+  background: none;
+  border: none;
+  color: #8899a6;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tweet-stats .like-btn:hover,
+.tweet-stats .like-btn.active {
+  color: #e0245e;
+}
+
+.tweet-stats .retweet-btn:hover,
+.tweet-stats .retweet-btn.active {
+  color: #17bf63;
+}
+
+.empty {
+  text-align: center;
+  color: #8899a6;
+  padding: 40px 15px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .twitter-container {
+    border-radius: 0;
+    border: none;
+  }
 }
